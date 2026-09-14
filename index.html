@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top 10 GD Demon List</title>
+    <title>Top 10 Demonlist</title>
 
     <style>
         * {
@@ -12,99 +12,203 @@
 
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #101018;
+            background: #858585;
             color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .page {
+            width: min(1100px, calc(100% - 50px));
+            min-height: 100vh;
+            margin: 28px auto;
+            padding: 40px 70px 60px;
+            background: #1d1d1d;
         }
 
         header {
             text-align: center;
-            padding: 40px 20px;
-            background: #18182a;
-            border-bottom: 3px solid #5555ff;
+            margin-bottom: 70px;
         }
 
         header h1 {
             margin: 0;
-            font-size: 42px;
-        }
-
-        header p {
-            color: #aaa;
-            font-size: 18px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(48px, 7vw, 82px);
+            font-weight: 400;
+            letter-spacing: 2px;
+            white-space: nowrap;
         }
 
         .list {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 0 20px;
+            width: 100%;
         }
 
         .level {
             display: flex;
             align-items: center;
-            gap: 20px;
-            background: #1b1b29;
-            margin: 15px 0;
-            padding: 15px;
-            border-radius: 12px;
-            border: 1px solid #303044;
+            gap: 28px;
+            min-height: 180px;
+            margin: 22px 0;
+            padding: 18px 25px;
+            background: #777777;
+            border: 5px solid #555555;
+            border-radius: 38px;
+            box-shadow:
+                inset 0 0 0 3px #888888,
+                0 4px 0 #444444;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .level:hover {
+            transform: translateY(-4px);
+            background: #808080;
+        }
+
+        .thumbnail-link {
+            display: block;
+            flex-shrink: 0;
         }
 
         .level-image {
-            width: 180px;
-            height: 100px;
+            display: block;
+            width: 245px;
+            height: 140px;
             object-fit: cover;
-            border-radius: 8px;
-            flex-shrink: 0;
-            background: #0b0b10;
+            border-radius: 22px;
+            border: 5px solid #555555;
+            background: #444444;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .thumbnail-link:hover .level-image {
+            transform: scale(1.03);
+            border-color: #aaaaff;
         }
 
         .info {
             flex: 1;
+            min-width: 0;
         }
 
-        .info h2 {
-            margin: 0 0 8px;
-            font-size: 22px;
+        .level-title {
+            margin: 0 0 14px;
+            font-size: clamp(24px, 3vw, 34px);
+            font-weight: 800;
+            color: white;
         }
 
-        .info p {
-            margin: 4px 0;
-            color: #aaa;
+        .details {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 5px 30px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .details p {
+            margin: 0;
         }
 
         .id {
-            color: #7777ff;
+            margin-top: 10px !important;
+            color: #e0e0e0;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 19px;
+            font-weight: 400;
+        }
+
+        .label {
+            color: #f2f2f2;
         }
 
         footer {
             text-align: center;
-            padding: 30px;
-            color: #777;
+            margin-top: 55px;
+            color: #888;
+            font-size: 15px;
         }
 
-        @media (max-width: 600px) {
-            .level {
-                gap: 12px;
-                padding: 10px;
+        @media (max-width: 800px) {
+            .page {
+                width: calc(100% - 24px);
+                margin: 12px auto;
+                padding: 30px 18px 45px;
             }
 
-            .level-image {
-                width: 120px;
-                height: 70px;
-            }
-
-            .info h2 {
-                font-size: 17px;
-            }
-
-            .info p {
-                font-size: 13px;
+            header {
+                margin-bottom: 40px;
             }
 
             header h1 {
-                font-size: 30px;
+                white-space: normal;
+                font-size: 48px;
+                line-height: 1.05;
+            }
+
+            .level {
+                gap: 18px;
+                min-height: 145px;
+                padding: 12px;
+                border-radius: 27px;
+            }
+
+            .level-image {
+                width: 180px;
+                height: 105px;
+                border-radius: 17px;
+            }
+
+            .level-title {
+                font-size: 24px;
+                margin-bottom: 9px;
+            }
+
+            .details {
+                font-size: 16px;
+                grid-template-columns: 1fr;
+                gap: 3px;
+            }
+
+            .id {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .page {
+                padding: 25px 12px 40px;
+            }
+
+            header h1 {
+                font-size: 38px;
+            }
+
+            .level {
+                align-items: flex-start;
+                gap: 13px;
+                padding: 10px;
+                min-height: 125px;
+                border-width: 4px;
+                border-radius: 22px;
+            }
+
+            .level-image {
+                width: 125px;
+                height: 82px;
+                border-width: 4px;
+                border-radius: 13px;
+            }
+
+            .level-title {
+                font-size: 19px;
+            }
+
+            .details {
+                font-size: 13px;
+            }
+
+            .id {
+                font-size: 13px;
             }
         }
     </style>
@@ -112,120 +216,260 @@
 
 <body>
 
+<div class="page">
+
     <header>
-        <h1>🏆 TOP 10 GD DEMON LIST</h1>
-        <p>The 10 hardest Geometry Dash levels</p>
+        <h1>TOP 10 DEMONLIST</h1>
     </header>
 
     <div class="list">
 
+        <!-- #1 Society -->
         <div class="level">
-            <a href="https://www.youtube.com/watch?v=3CoEaH1CM7o" target="_blank">
-                <img class="level-image" src="https://i.ytimg.com/vi/3CoEaH1CM7o/mqdefault.jpg" alt="Society">
+            <a class="thumbnail-link"
+               href="https://www.youtube.com/watch?v=3CoEaH1CM7o"
+               target="_blank"
+               rel="noopener noreferrer">
+                <img class="level-image"
+                     src="https://i.ytimg.com/vi/3CoEaH1CM7o/mqdefault.jpg"
+                     alt="Society">
             </a>
+
             <div class="info">
-                <h2>#1 - Society</h2>
-                <p>Creator: Neomarbilan</p>
-                <p>Level ID: <span class="id">127323087</span></p>
+                <h2 class="level-title">[#1] // Society</h2>
+
+                <div class="details">
+                    <p>By <span class="label">Neomarbilan</span></p>
+                    <p>Victors: <span class="label">1</span></p>
+                    <p>Verified by <span class="label">wPopoff</span></p>
+                </div>
+
+                <p class="id">ID: 127323087</p>
             </div>
         </div>
 
+
+        <!-- #2 Amethyst -->
         <div class="level">
-            <a href="https://www.youtube.com/watch?v=4lfkzz1VCbA" target="_blank">
-                <img class="level-image" src="https://i.ytimg.com/vi/4lfkzz1VCbA/mqdefault.jpg" alt="Amethyst">
+            <a class="thumbnail-link"
+               href="https://www.youtube.com/watch?v=4lfkzz1VCbA"
+               target="_blank"
+               rel="noopener noreferrer">
+                <img class="level-image"
+                     src="https://i.ytimg.com/vi/4lfkzz1VCbA/mqdefault.jpg"
+                     alt="Amethyst">
             </a>
+
             <div class="info">
-                <h2>#2 - Amethyst</h2>
-                <p>Creator: iMist</p>
-                <p>Level ID: <span class="id">119550490</span></p>
+                <h2 class="level-title">[#2] // Amethyst</h2>
+
+                <div class="details">
+                    <p>By <span class="label">iMist</span></p>
+                    <p>Victors: <span class="label">1</span></p>
+                    <p>Verified by <span class="label">iMist</span></p>
+                </div>
+
+                <p class="id">ID: 119550490</p>
             </div>
         </div>
 
+
+        <!-- #3 Thinking Space II -->
         <div class="level">
-            <a href="https://www.youtube.com/watch?v=CELNmHwln_c" target="_blank">
-                <img class="level-image" src="https://i.ytimg.com/vi/CELNmHwln_c/mqdefault.jpg" alt="Thinking Space II">
+            <a class="thumbnail-link"
+               href="https://www.youtube.com/watch?v=CELNmHwln_c"
+               target="_blank"
+               rel="noopener noreferrer">
+                <img class="level-image"
+                     src="https://i.ytimg.com/vi/CELNmHwln_c/mqdefault.jpg"
+                     alt="Thinking Space II">
             </a>
+
             <div class="info">
-                <h2>#3 - Thinking Space II</h2>
-                <p>Creator: CairoX</p>
-                <p>Level ID: <span class="id">119544028</span></p>
+                <h2 class="level-title">[#3] // Thinking Space II</h2>
+
+                <div class="details">
+                    <p>By <span class="label">CairoX</span></p>
+                    <p>Victors: <span class="label">1</span></p>
+                    <p>Verified by <span class="label">CairoX</span></p>
+                </div>
+
+                <p class="id">ID: 119544028</p>
             </div>
         </div>
 
+
+        <!-- #4 Artemis 13 -->
         <div class="level">
-            <a href="https://www.youtube.com/watch?v=FgjOM0ef1N8" target="_blank">
-                <img class="level-image" src="https://i.ytimg.com/vi/FgjOM0ef1N8/maxresdefault.jpg" alt="Artemis 13">
+            <a class="thumbnail-link"
+               href="https://www.youtube.com/watch?v=FgjOM0ef1N8"
+               target="_blank"
+               rel="noopener noreferrer">
+                <img class="level-image"
+                     src="https://i.ytimg.com/vi/FgjOM0ef1N8/maxresdefault.jpg"
+                     alt="Artemis 13">
             </a>
+
             <div class="info">
-                <h2>#4 - Artemis 13</h2>
-                <p>Creator: mvngo</p>
-                <p>Level ID: <span class="id">148598469</span></p>
+                <h2 class="level-title">[#4] // Artemis 13</h2>
+
+                <div class="details">
+                    <p>By <span class="label">mvngo</span></p>
+                    <p>Victors: <span class="label">1</span></p>
+                    <p>Verified by <span class="label">Zoink</span></p>
+                </div>
+
+                <p class="id">ID: 148598469</p>
             </div>
         </div>
 
+
+        <!-- #5 Flamewall -->
         <div class="level">
-            <a href="https://www.youtube.com/watch?v=x4Io4zkWVRw" target="_blank">
-                <img class="level-image" src="https://i.ytimg.com/vi/wS4VXKN-ses/mqdefault.jpg" alt="Flamewall">
+            <a class="thumbnail-link"
+               href="https://www.youtube.com/watch?v=x4Io4zkWVRw"
+               target="_blank"
+               rel="noopener noreferrer">
+                <img class="level-image"
+                     src="https://i.ytimg.com/vi/wS4VXKN-ses/mqdefault.jpg"
+                     alt="Flamewall">
             </a>
+
             <div class="info">
-                <h2>#5 - Flamewall</h2>
-                <p>Creator: UNarwall</p>
-                <p>Level ID: <span class="id">126242564</span></p>
+                <h2 class="level-title">[#5] // Flamewall</h2>
+
+                <div class="details">
+                    <p>By <span class="label">UNarwall</span></p>
+                    <p>Victors: <span class="label">1</span></p>
+                    <p>Verified by <span class="label">Zoink</span></p>
+                </div>
+
+                <p class="id">ID: 126242564</p>
             </div>
         </div>
 
+
+        <!-- #6 Tidal Wave -->
         <div class="level">
-            <a href="https://www.youtube.com/watch?v=9fsZ014qB3s" target="_blank">
-                <img class="level-image" src="https://i.ytimg.com/vi/9fsZ014qB3s/mqdefault.jpg" alt="Tidal Wave">
+            <a class="thumbnail-link"
+               href="https://www.youtube.com/watch?v=9fsZ014qB3s"
+               target="_blank"
+               rel="noopener noreferrer">
+                <img class="level-image"
+                     src="https://i.ytimg.com/vi/9fsZ014qB3s/mqdefault.jpg"
+                     alt="Tidal Wave">
             </a>
+
             <div class="info">
-                <h2>#6 - Tidal Wave</h2>
-                <p>Creator: OniLinkGD</p>
-                <p>Level ID: <span class="id">86407629</span></p>
+                <h2 class="level-title">[#6] // Tidal Wave</h2>
+
+                <div class="details">
+                    <p>By <span class="label">OniLinkGD</span></p>
+                    <p>Victors: <span class="label">1</span></p>
+                    <p>Verified by <span class="label">Zoink</span></p>
+                </div>
+
+                <p class="id">ID: 86407629</p>
             </div>
         </div>
 
+
+        <!-- #7 Green Bullet -->
         <div class="level">
-            <a href="https://www.youtube.com/watch?v=JG-qcvVkZFw" target="_blank">
-                <img class="level-image" src="https://i.ytimg.com/vi/JG-qcvVkZFw/mqdefault.jpg" alt="Green Bullet">
+            <a class="thumbnail-link"
+               href="https://www.youtube.com/watch?v=JG-qcvVkZFw"
+               target="_blank"
+               rel="noopener noreferrer">
+                <img class="level-image"
+                     src="https://i.ytimg.com/vi/JG-qcvVkZFw/mqdefault.jpg"
+                     alt="Green Bullet">
             </a>
+
             <div class="info">
-                <h2>#7 - Green Bullet</h2>
-                <p>Creator: cherryteam</p>
-                <p>Level ID: <span class="id">142896409</span></p>
+                <h2 class="level-title">[#7] // Green Bullet</h2>
+
+                <div class="details">
+                    <p>By <span class="label">cherryteam</span></p>
+                    <p>Victors: <span class="label">1</span></p>
+                    <p>Verified by <span class="label">Zoink</span></p>
+                </div>
+
+                <p class="id">ID: 142896409</p>
             </div>
         </div>
 
+
+        <!-- #8 ORBIT -->
         <div class="level">
-            <a href="https://www.youtube.com/watch?v=QKcv8DkNPd0" target="_blank">
-                <img class="level-image" src="https://i.ytimg.com/vi/QKcv8DkNPd0/mqdefault.jpg" alt="ORBIT">
+            <a class="thumbnail-link"
+               href="https://www.youtube.com/watch?v=QKcv8DkNPd0"
+               target="_blank"
+               rel="noopener noreferrer">
+                <img class="level-image"
+                     src="https://i.ytimg.com/vi/QKcv8DkNPd0/mqdefault.jpg"
+                     alt="ORBIT">
             </a>
+
             <div class="info">
-                <h2>#8 - ORBIT</h2>
-                <p>Creator: MindCap</p>
-                <p>Level ID: <span class="id">133175713</span></p>
+                <h2 class="level-title">[#8] // ORBIT</h2>
+
+                <div class="details">
+                    <p>By <span class="label">MindCap</span></p>
+                    <p>Victors: <span class="label">1</span></p>
+                    <p>Verified by <span class="label">Zoink</span></p>
+                </div>
+
+                <p class="id">ID: 133175713</p>
             </div>
         </div>
 
+
+        <!-- #9 Antarctic Lights -->
         <div class="level">
-            <a href="https://www.youtube.com/watch?v=Uue4ZRhVf-I" target="_blank">
-                <img class="level-image" src="https://i.ytimg.com/vi/Uue4ZRhVf-I/mqdefault.jpg" alt="Antarctic Lights">
+            <a class="thumbnail-link"
+               href="https://www.youtube.com/watch?v=Uue4ZRhVf-I"
+               target="_blank"
+               rel="noopener noreferrer">
+                <img class="level-image"
+                     src="https://i.ytimg.com/vi/Uue4ZRhVf-I/mqdefault.jpg"
+                     alt="Antarctic Lights">
             </a>
+
             <div class="info">
-                <h2>#9 - Antarctic Lights</h2>
-                <p>Creator: declanlc</p>
-                <p>Level ID: <span class="id">144988390</span></p>
+                <h2 class="level-title">[#9] // Antarctic Lights</h2>
+
+                <div class="details">
+                    <p>By <span class="label">declanlc</span></p>
+                    <p>Victors: <span class="label">1</span></p>
+                    <p>Verified by <span class="label">Zoink</span></p>
+                </div>
+
+                <p class="id">ID: 144988390</p>
             </div>
         </div>
 
+
+        <!-- #10 Nullscapes -->
         <div class="level">
-            <a href="https://www.youtube.com/watch?v=EztneTPp5CU" target="_blank">
-                <img class="level-image" src="https://i.ytimg.com/vi/EztneTPp5CU/mqdefault.jpg" alt="BOOBAWAMBA">
+            <a class="thumbnail-link"
+               href="https://www.youtube.com/watch?v=EztneTPp5CU"
+               target="_blank"
+               rel="noopener noreferrer">
+                <img class="level-image"
+                     src="https://i.ytimg.com/vi/EztneTPp5CU/mqdefault.jpg"
+                     alt="Nullscapes">
             </a>
+
             <div class="info">
-                <h2>#10 - Nullscapes</h2>
-                <p>Creator: ItzKiba</p>
-                <p>Level ID: <span class="id">109780665</span></p>
+                <h2 class="level-title">[#10] // Nullscapes</h2>
+
+                <div class="details">
+                    <p>By <span class="label">ItzKiba</span></p>
+                    <p>Victors: <span class="label">1</span></p>
+                    <p>Verified by <span class="label">ItzKiba</span></p>
+                </div>
+
+                <p class="id">ID: 109780665</p>
             </div>
         </div>
 
@@ -234,6 +478,8 @@
     <footer>
         My Geometry Dash Demon List • Top 10
     </footer>
+
+</div>
 
 </body>
 </html>
